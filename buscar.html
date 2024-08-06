@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Lugar - Turismo RD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body class="fondo" style="background-image: url(image/img4.jpg);">
+    <div>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="buscar.html">Buscar lugares</a>
+            <a href="Explorar.html">Explorar</a>
+            <a href="Eventos.Html">Eventos</a>
+            <a href="AcercaDe.html">Acerca de</a>
+            <a href="contactanos.html">Contáctanos</a>
+        </nav>
+    </header>
+
+    <div class="contentDiv" style="background-color: rgba(223, 223, 223, 0.705);">
+        <h3 class="subtitle" style="color: rgb(255, 255, 255); margin-top: 20px;">TURISMO RD</h3>
+        <h1>Buscar Lugares</h1>
+
+        <div class="search-section" >
+            <div class="search-bar">
+                <input type="text" id="buscar" placeholder="Buscar..." style="margin-bottom: 10px;">
+                <select id="provincia" style="margin-bottom: 10px;">
+                    <option value="">Seleccionar Provincia</option>
+                    <option value="samaná">Samaná</option>
+                    <option value="punta cana">Punta Cana</option>
+                    <option value="jarabacoa">Jarabacoa</option>
+                    <option value="santo domingo">Santo Domingo</option>
+                </select>
+                <button id="searchButton" class="otherbuttons">Explorar</button>
+
+            </div>
+            
+        </div>
+        <div id="resultados" class="search-results"></div>
+    </div>
+    <script src="buscar.js"></script>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Eventos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="fondoBlanco">
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="buscar.html">Buscar lugares</a>
+            <a href="Explorar.html">Explorar</a>
+            <a href="Eventos.Html">Eventos</a>
+            <a href="AcercaDe.html">Acerca de</a>
+            <a href="contactanos.html">Contáctanos</a>
+        </nav>
+    </header>
+
+    <div class="contentDiv">
+        <h1 style="text-shadow: none; font-size: 3.3em; margin-bottom: 0;"> Eventos  </h1>
+        <h3 class="subtitle" style="color: black; text-shadow: none; margin-top: 0px; margin-bottom: 35px;">Eventos de todo tipo que no te puedes perder</h3>
+
+
+        <div id="eventsContainer" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+            <!-- Los eventos se cargarán aquí -->
+        </div>
+    </div>
+
+    <div class="event-details" id="eventDetails">
+        <button class="close-btn" onclick="hideEventDetails()">×</button>
+        <div id="eventContent" class="eventContent"></div>
+    </div>
+
+    <script src="events.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const eventsContainer = document.getElementById('eventsContainer');
+            for (const eventId in events) {
+                const event = events[eventId];
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'CardDiv';
+                cardDiv.style.backgroundImage = `url('${event.image}')`;
+                cardDiv.onclick = () => showEventDetails(eventId);
+                cardDiv.innerHTML = `
+                    <h3 class="eventName">${event.name}</h3>
+                    <p>Horario: ${event.time}</p>
+                    <p>Fecha: ${event.date}</p>
+                `;
+                eventsContainer.appendChild(cardDiv);
+            }
+        });
+
+        function showEventDetails(eventId) {
+            const event = events[eventId];
+            document.getElementById('eventContent').innerHTML = `
+                <h3>${event.name}</h3>
+                <p>Fecha: ${event.date}</p>
+                <p>${event.description}</p>
+                <p>Ubicación: ${event.ubicacion}</p>
+                <p><a href="buscar.html">${event.province}</a></p>
+                <img style="width: 400px;" src="${event.image}" alt="${event.name}">
+            `;
+            document.getElementById('eventDetails').style.display = 'block';
+        }
+
+        function hideEventDetails() {
+            document.getElementById('eventDetails').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
